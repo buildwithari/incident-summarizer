@@ -2,6 +2,7 @@
 
 ## File Structure
 
+```
 incident-summarizer/
 ├── app/
 │   ├── api/            # FastAPI route handlers (HTTP layer only, no business logic)
@@ -17,6 +18,7 @@ incident-summarizer/
 ├── tests/
 ├── infra/              # Terraform or CloudFormation
 └── .github/workflows/  # CI/CD
+```
 
 The `indexing/` pipeline runs offline at ingest time, it's not in the request path. The `retrieval/` and `summarizer/` modules run at query time. Keeping them separate means you can re-index without touching the API, and you can swap the LLM without touching retrieval.
 
